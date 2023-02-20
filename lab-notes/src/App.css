@@ -31,11 +31,11 @@ background-size: cover;
     display: flex;
     flex-direction: column;
     text-align: center;
-    color:black
+    color:black 
 }
-.Home-lista {
+.Home-button {
     font-size: 20px;
     list-style: none;
-    color:black
+   
     
 }

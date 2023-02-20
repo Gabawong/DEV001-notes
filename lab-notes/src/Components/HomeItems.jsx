@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 
-function HomeItems(props) {
+const HomeItems = (props)=> {
     return (
-        <li className="Home-lista">
+        <li className="Home-button">
             <Link to = {props.link}>
                 {props.text}
             </Link>
         </li>
+        
     )
 }
+
 
 
 
