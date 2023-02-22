@@ -20,13 +20,12 @@ const Home = () => {
             await SignUp(email, password);
         }
     }
-   
     return (
         <><header className="Home-header">Daily notes</header><h4 className="Home-msnwelcome">
             Bienvenida!a Daily notes <br></br>
             Aquí podrás llevar un control de todas las actividades del día a día.<br></br>
-        </h4><div className="Home-contentForm">
-                <div>
+        </h4>
+                <div className="Home-contentForm">
                     <h2>{isLoginIn ? 'Inicia Sesión' : 'Registrate'} </h2>
                     <form 
                     className="Home-form"
@@ -42,26 +41,26 @@ const Home = () => {
                             type="password"
                             id="password" />
                         <button
-                            className="Home-button"
+                            className="Home-buttonEstado"
                             type="submit"
                             link="/Muro"
                         > {isLoginIn ? 'Acceder' : 'Registrate'}
                         </button>
                     </form>
                     <button
-                    className='Home-button"'
+                    className='Home-buttonGoogle'
                     onClick={LoginWithGoogle}
                     >Accede con Google
                     </button>
-                    <button
-                        className="Home-button"
+                    <a
+                        className="Home-enlace"
                         onClick={() => setIsLoginIn(!isLoginIn)}>
                         {isLoginIn
                             ? '¿No tienes cuenta? Crea una'
                             : '¿Ya tienes cuenta? Accede'}
-                    </button>
+                    </a>
                 </div>
-            </div></>
+            </>
     );
 };
 
