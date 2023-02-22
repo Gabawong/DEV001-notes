@@ -1,5 +1,6 @@
 
 import reactLogo from './assets/react.svg'
+import "normalize.css";
 import './App.css'
 import {
     BrowserRouter,
@@ -14,6 +15,7 @@ import Muro from './Components/Muro.jsx';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '/src/Function_Firebase/dataFirebase.js';
 import React, { useState } from 'react';
+
 
 function App() {
   //Creamos un estado, que será inicialñizado en null
