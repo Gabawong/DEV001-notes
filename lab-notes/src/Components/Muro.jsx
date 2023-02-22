@@ -23,12 +23,16 @@ const Muro = (user) => {
     const [allNotes, setAllNotes] = useState(null);// Al recibir todas las notas, vamos a guardarlas en este estado y ñluego renderizarlos
 
     return (
-        <div>
+        <div className='Muro-container'>
             <Navbar user = {user} />
+            <div className='Muro-note'>
             <NoteForm refreshAllNotes = {refreshAllNotes}/> 
+            <div className='Muro-body'>
             {allNotes && (allNotes.map(notas => <NotesPending
              notas= {notas}/>// usamos un cortocircuito(&&)si el primero es verdadero continuamos al segundo
             ))}
+            </div>
+            </div>
         </div>
     );
 

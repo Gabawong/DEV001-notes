@@ -5,10 +5,10 @@ import LogOut from '/src/Function_Firebase/LogOut'
 const Navbar = ({user}) => {
 
     return (
-        <div>
+        <div className='Navbar-structure'>
             <p>{user.email}</p>
             <button
-                className="LogOut"
+                className="button-LogOut"
                 onClick={LogOut}
             >
                 Cerrar Sesión
