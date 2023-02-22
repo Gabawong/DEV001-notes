@@ -8,7 +8,7 @@ import HomeItems from "./HomeItems";
 const Home = () => {
     //Si estoy loginIn o no estoy(setIsLoginIn), por defecto sería falso..osea que no estoy iniciando sesion sino que estoy en el registro 
     const [isLoginIn, setIsLoginIn] = useState(false);
-  
+
     const submitHandler = async (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -21,46 +21,48 @@ const Home = () => {
         }
     }
     return (
-        <><header className="Home-header">Daily notes</header><h4 className="Home-msnwelcome">
-            Bienvenida!a Daily notes <br></br>
-            Aquí podrás llevar un control de todas las actividades del día a día.<br></br>
-        </h4>
-                <div className="Home-contentForm">
-                    <h2>{isLoginIn ? 'Inicia Sesión' : 'Registrate'} </h2>
-                    <form 
+        <><header className="Home-header">Daily notes</header>
+    
+            <div className="Home-contentForm">
+                <h1>{isLoginIn ? 'Inicia Sesión' : 'Registrate'} </h1>
+                <form
                     className="Home-form"
-                    onSubmit = {submitHandler}>
-                        <label htmlFor='email'>Email</label>
-                        <input
-                            className="Home-input"
-                            type="text"
-                            id="email" />
-                        <label htmlFor='password'>Password</label>
-                        <input
-                            className="Home-input"
-                            type="password"
-                            id="password" />
-                        <button
-                            className="Home-buttonEstado"
-                            type="submit"
-                            link="/Muro"
-                        > {isLoginIn ? 'Acceder' : 'Registrate'}
-                        </button>
-                    </form>
+                    onSubmit={submitHandler}>
+                        <div className="input-item">
+                    <label htmlFor='email'>Email</label>
+                    <input
+                        className="Home-input"
+                        type="text"
+                        id="email" />
+                        </div>
+                        <div className="input-item">
+                    <label htmlFor='password'>Password</label>
+                    <input
+                        className="Home-input"
+                        type="password"
+                        id="password" />
+                        </div>
                     <button
+                        className="Home-buttonEstado"
+                        type="submit"
+                        link="/Muro"
+                    > {isLoginIn ? 'Acceder' : 'Registrate'}
+                    </button>
+                </form>
+                <button
                     className='Home-buttonGoogle'
                     onClick={LoginWithGoogle}
-                    >Accede con Google
-                    </button>
-                    <a
-                        className="Home-enlace"
-                        onClick={() => setIsLoginIn(!isLoginIn)}>
-                        {isLoginIn
-                            ? '¿No tienes cuenta? Crea una'
-                            : '¿Ya tienes cuenta? Accede'}
-                    </a>
-                </div>
-            </>
+                >Accede con Google
+                </button>
+                <a
+                    className="Home-enlace"
+                    onClick={() => setIsLoginIn(!isLoginIn)}>
+                    {isLoginIn
+                        ? '¿No tienes cuenta? Crea una'
+                        : '¿Ya tienes cuenta? Accede'}
+                </a>
+            </div>
+        </>
     );
 };
 

@@ -2,7 +2,7 @@
 const NotesPending = ({ notas }) => {
 
     return (
-        <div>
+        <div className="notas-pending">
             <div>
                 <h3>Nota</h3>
                 <p>{notas.nota}</p>
