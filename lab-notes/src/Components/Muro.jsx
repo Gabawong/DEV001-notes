@@ -2,36 +2,50 @@
 import Navbar from '../Components/Navbar.jsx';
 import NoteForm from '../Components/NoteForm.jsx';
 import { useEffect, useState } from 'react';
-import  ReadAllNotes from '/src/Function_Firebase/ReadAllNotes.js'
+import ReadAllNotes from '/src/Function_Firebase/ReadAllNotes.js'
 import NotesPending from './NotesPending.jsx';
+import EditNoteModal from './EditNoteModal.jsx';
 
 
 const Muro = (user) => {
     const refreshAllNotes = () => {
         ReadAllNotes()
-        .then(notas => {
-            setAllNotes(notas)
-        })
-        .catch (err => {
-            alert(err);
-        });
+            .then(notas => {
+                setAllNotes(notas)
+            })
+            .catch(err => {
+                alert(err);
+            });
     };
-    useEffect(()=> {
-        refreshAllNotes();//
+    useEffect(() => {
+        refreshAllNotes();
     }, []);
 
     const [allNotes, setAllNotes] = useState(null);// Al recibir todas las notas, vamos a guardarlas en este estado y ñluego renderizarlos
+    const [selectedNote, setSelectedNote] = useState(null);
 
     return (
         <div className='Muro-container'>
-            <Navbar user = {user} />
+            <Navbar user={user} />
             <div className='Muro-note'>
-            <NoteForm refreshAllNotes = {refreshAllNotes}/> 
-            <div className='Muro-body'>
-            {allNotes && (allNotes.map(notas => <NotesPending
-             notas= {notas}/>// usamos un cortocircuito(&&)si el primero es verdadero continuamos al segundo
-            ))}
-            </div>
+                <NoteForm refreshAllNotes={refreshAllNotes} />
+                <div className='Muro-body'>
+                    {allNotes && (allNotes.map(notas =>
+                        <NotesPending // usamos un cortocircuito(&&)si el primero es verdadero continuamos al segundo
+                            key={notas.id}
+                            notas={notas}
+                            setSelectedNote={setSelectedNote}
+                            refreshAllNotes={refreshAllNotes}
+                        />
+                    ))}
+
+                    {selectedNote && (// a menos que selectedNote exista  recien muestra EditModal
+                        <EditNoteModal
+                            notas={selectedNote}
+                            refreshAllNotes={refreshAllNotes}
+                        />
+                    )}
+                </div>
             </div>
         </div>
     );

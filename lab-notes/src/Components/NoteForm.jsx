@@ -12,6 +12,7 @@ const NoteForm = ({ refreshAllNotes }) => {
         const data = { nota, status };
         await CreateNote(data);//esperar la confirmacion, 
         e.target.nota.value = e.target.status.value = ''; //todos los datos los regresamos a 0
+        console.log(data);
 
         refreshAllNotes();//Despues de crear las notas y despues de limpiar la nota, vamos a llamar a refresh
     };
