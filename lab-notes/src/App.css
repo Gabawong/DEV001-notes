@@ -64,7 +64,8 @@ h1{
     display: flex;
     font-family: 'Prompt', sans-serif;
     font-size: 150px;
-    color:#c65314
+    color:#c65314;
+    text-align: center;
 }
 .Home-section {
     display: flex;
@@ -187,10 +188,11 @@ button:hover {
     :root {
        color: #213547;
       background-color: #ffffff;
+      font-size: 20px;
     }
   
     a:hover {
-      color: #747bff;
+      color: #c65314;
     }
   
     button {
