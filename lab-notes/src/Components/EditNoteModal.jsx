@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import editNote from '/src/Function_Firebase/EditNote.js';
+import editNote from './../Function_Firebase/EditNote.js';
 
 const EditNoteModal = ({ notas, refreshAllNotes }) => {
     //sirve para disparar efectos secundarios cada vez uno de nuestros estados cambie

@@ -9,7 +9,6 @@ const NotesPending = ({ notas,setSelectedNote, refreshAllNotes }) => {
         modal.showModal();
     }
     const removeNote = () => {
-
     }
     
     return (

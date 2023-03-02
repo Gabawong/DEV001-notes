@@ -1,7 +1,7 @@
 import { auth } from './dataFirebase.js';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
-const signIn = async (email, password) => {
+const SignIn = async (email, password) => {
     try {
         const user = await signInWithEmailAndPassword(auth, email, password);
         console.log(user);
@@ -33,4 +33,4 @@ const signIn = async (email, password) => {
     };
 };
 
-export default signIn;
+export default SignIn;
