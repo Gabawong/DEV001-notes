@@ -2,7 +2,7 @@
 import Navbar from '../Components/Navbar.jsx';
 import NoteForm from '../Components/NoteForm.jsx';
 import { useEffect, useState } from 'react';
-import ReadAllNotes from '/src/Function_Firebase/ReadAllNotes.js'
+import ReadAllNotes from './../Function_Firebase/ReadAllNotes.js'
 import NotesPending from './NotesPending.jsx';
 import EditNoteModal from './EditNoteModal.jsx';
 
@@ -19,7 +19,7 @@ const Muro = (user) => {
     };
     useEffect(() => {
         refreshAllNotes();
-    }, []);
+    }, []);//callback y arreglo de dependecias
 
     const [allNotes, setAllNotes] = useState(null);// Al recibir todas las notas, vamos a guardarlas en este estado y ñluego renderizarlos
     const [selectedNote, setSelectedNote] = useState(null);

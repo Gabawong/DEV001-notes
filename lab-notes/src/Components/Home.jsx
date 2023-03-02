@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
-import SignIn from '/src/Function_Firebase/SignIn'
-import SignUp from '/src/Function_Firebase/Register'
-import LoginWithGoogle from '/src/Function_Firebase/LogGoogle'
+import SignIn from './../Function_Firebase/SignIn'
+import SignUp from './../Function_Firebase/Register'
+import LoginWithGoogle from './../Function_Firebase/LogGoogle'
 import HomeItems from "./HomeItems";
 
 
 const Home = () => {
-    //Si estoy loginIn o no estoy(setIsLoginIn), por defecto sería falso..osea que no estoy iniciando sesion sino que estoy en el registro 
+    //Si estoy logeado(isloginIn o no estoy(setIsLoginIn), por defecto sería falso..osea que no estoy iniciando sesion sino que estoy en el registro 
     const [isLoginIn, setIsLoginIn] = useState(false);
 
     const submitHandler = async (e) => {
-        e.preventDefault();
-        const email = e.target.email.value;
+        e.preventDefault();//prevenimos que la pag se actualice
+        const email = e.target.email.value;//target se refiere al formulario, en este caso el email y accedemos a su valor
         const password = e.target.password.value;
 
-        if (isLoginIn) {
+        if (isLoginIn) {//si la persona está en modo acceder llamamos la funcion de iniciar sesion sino la de registrar
             await SignIn(email, password);
         } else {
             await SignUp(email, password);

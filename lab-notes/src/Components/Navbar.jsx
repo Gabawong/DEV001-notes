@@ -1,5 +1,5 @@
 
-import LogOut from '/src/Function_Firebase/LogOut'
+import LogOut from './../Function_Firebase/LogOut'
 
 
 const Navbar = ({user}) => {

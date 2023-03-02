@@ -1,5 +1,5 @@
 import { db } from './dataFirebase.js';
-import { collection, addDoc,doc,setDoc } from 'firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
 
 //con esta función va a recibir los datos de la nota
 const CreateNote = async (data) => {

@@ -1,4 +1,4 @@
-import CreateNote from '/src/Function_Firebase/CreateNote.js'
+import CreateNote from './../Function_Firebase/CreateNote.js'
 
 
 const NoteForm = ({ refreshAllNotes }) => {

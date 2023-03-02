@@ -6,7 +6,7 @@ import {
 
 import App from './App.jsx'
 import Home from './Components/Home.jsx'
-import './index.css'
+
 
 
 ReactDOM.render(
