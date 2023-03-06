@@ -1,16 +1,21 @@
 
 import RemoveNote from "../Function_Firebase/RemoveNote";
+import { useState } from "react";
+import EditNoteModal from "./EditNoteModal";
 
-const NotesPending = ({ notas,setSelectedNote, refreshAllNotes }) => {
+const NotesPending = ({ notas, setSelectedNote, refreshAllNotes }) => {
+
+    const [showEditModal, setShowEditModal] = useState(false);
 
     const showModalEdit = () => {
-        setSelectedNote(notas)//guardamos la nota que seleccionemos
-        const modal = document.getElementById ('modal-edit-note');
-        modal.showModal();
-    }
-    const removeNote = () => {
-    }
-    
+        setSelectedNote(notas);
+        setShowEditModal(true);
+    };
+
+    const hideModalEdit = () => {
+        setShowEditModal(false);
+    };
+
     return (
         <div className="notas-pending">
             <div>
@@ -21,15 +26,15 @@ const NotesPending = ({ notas,setSelectedNote, refreshAllNotes }) => {
                 <h3>Status</h3>
                 <p>{notas.status}</p>
             </div>
-            <button
-            onClick={showModalEdit}
-            >Editar</button>
-            <button
-            onClick={()=>{RemoveNote(notas.id).then
-            (confirmacion => {refreshAllNotes();
-            })
-        }}
-            >Eliminar</button>
+            <button onClick={showModalEdit}>Editar</button>
+            <button onClick={() => RemoveNote(notas.id,refreshAllNotes)}>Eliminar</button>
+            {showEditModal && (
+                <EditNoteModal
+                    notas={notas}
+                    refreshAllNotes={refreshAllNotes}
+                    showModal={setShowEditModal}
+                />
+            )}
         </div>
     );
 };

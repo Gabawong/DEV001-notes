@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import editNote from './../Function_Firebase/EditNote.js';
 
-const EditNoteModal = ({ notas, refreshAllNotes }) => {
+const EditNoteModal = ({ notas, refreshAllNotes, showModal }) => {
     //sirve para disparar efectos secundarios cada vez uno de nuestros estados cambie
     useEffect(() => {
         setNoteEdit(notas);
@@ -11,16 +11,26 @@ const EditNoteModal = ({ notas, refreshAllNotes }) => {
 
     const submitHandler = (e) => {
         e.preventDefault();//prevenir que la pag se actualice
-        editNote(noteEdit.id, noteEdit).then(confirmacion => {
-            const modal = document.getElementById('modal-edit-note');
-            refreshAllNotes();//actualizamos
-            modal.close()//cerramos
-        });
+        editNote(noteEdit.id, noteEdit)
+            .then(confirmacion => {
+                //  const modal = document.getElementById('modal-edit-note');
+                refreshAllNotes();//actualizamos
+                closeModal()//cerramos
+            })
+            .catch((err) => {
+                alert(err);
+            });
+        }
+        const closeModal = () => {
+            setNoteEdit(noteEdit.id, noteEdit);
+            showModal(false);
+        };
 
-    }
+    
     return (
         //diálogo trae un metodo para mostrar u ocultar
-        <dialog id='modal-edit-note'>
+        
+        <dialog open={notas!== null}>
             <form onSubmit={submitHandler}>
                 <label >
                     Nota
@@ -52,12 +62,18 @@ const EditNoteModal = ({ notas, refreshAllNotes }) => {
                     </select>
                 </label>
                 <button
+                 type='button' 
+                 onClick = {closeModal}>
+                    Cancelar
+                </button>
+                <button
                     className='button-addnote'
                     type='submit'>
                     Editar nota
                 </button>
             </form>
         </dialog >
+       
     )
 };
 
