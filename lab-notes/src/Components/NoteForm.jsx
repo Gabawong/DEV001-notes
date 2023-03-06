@@ -1,4 +1,4 @@
-import CreateNote from './../Function_Firebase/CreateNote.js'
+import CreateNote from '../Function_Firebase/CreateNote.js'
 
 
 const NoteForm = ({ refreshAllNotes }) => {
@@ -11,8 +11,8 @@ const NoteForm = ({ refreshAllNotes }) => {
 
         const data = { nota, status };
         await CreateNote(data);//esperar la confirmacion, 
-        e.target.nota.value = e.target.status.value = ''; //todos los datos los regresamos a 0
-        console.log(data);
+        //e.target.nota.value = e.target.status.value = ''; //todos los datos los regresamos a 0
+        //console.log(data);
 
         refreshAllNotes();//Despues de crear las notas y despues de limpiar la nota, vamos a llamar a refresh
     };
@@ -29,14 +29,14 @@ const NoteForm = ({ refreshAllNotes }) => {
                     </label>
                     <label className="input-notes">
                         Status
-                        <select id='status'>
+                        <select id='status' >
                             <option value='Pendiente'>Pendiente</option>
                             <option value='Proceso'>Proceso</option>
                             <option value='Concluido'>Concluido</option>
                         </select>
                     </label>
                 </div>
-                <button className='button-addnote'>
+                <button type='submit' className='button-addnote'>
                     Agregar nota
                 </button>
             </form>

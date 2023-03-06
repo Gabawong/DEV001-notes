@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import SignIn from './../Function_Firebase/SignIn'
 import SignUp from './../Function_Firebase/Register'
 import LoginWithGoogle from './../Function_Firebase/LogGoogle'
-import HomeItems from "./HomeItems";
 
 
 const Home = () => {

@@ -38,13 +38,6 @@ const Muro = (user) => {
                             refreshAllNotes={refreshAllNotes}
                         />
                     ))}
-
-                    {selectedNote && (// a menos que selectedNote exista  recien muestra EditModal
-                        <EditNoteModal
-                            notas={selectedNote}
-                            refreshAllNotes={refreshAllNotes}
-                        />
-                    )}
                 </div>
             </div>
         </div>
