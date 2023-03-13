@@ -1,11 +1,16 @@
-import { auth } from './dataFirebase.js';
+import { auth, db } from './dataFirebase.js';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const SignIn = async (email, password) => {
     try {
-        const user = await signInWithEmailAndPassword(auth, email, password);
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        const userId = user.uid;
+        console.log(userId);
         console.log(user);
         //en mi project anterior usé el onAuthStateChanged con esta función para poder traer al usuario
+
+
     } catch (error) {
 
         if (errorCode.includes('auth/user-not-found')) {

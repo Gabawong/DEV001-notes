@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import SignIn from './../Function_Firebase/SignIn'
 import SignUp from './../Function_Firebase/Register'
 import LoginWithGoogle from './../Function_Firebase/LogGoogle'
-
+import SearchModal from './SearchModal'
 
 const Home = () => {
     //Si estoy logeado(isloginIn o no estoy(setIsLoginIn), por defecto sería falso..osea que no estoy iniciando sesion sino que estoy en el registro 

@@ -6,7 +6,19 @@ const Navbar = ({user}) => {
 
     return (
         <div className='Navbar-structure'>
-            <p>{user.email}</p>
+            <div className='bienvenida1'>
+            <p >Bienvenida</p>
+            <p className='bienvenida2'>
+            {user.user.email}</p>
+            </div>
+            <button
+            className='button-Search'
+            onClick={() => {
+                const modalBusqueda = document.querySelector ('#search-modal');
+                modalBusqueda.showModal();
+            } }>
+                Buscar 
+            </button>
             <button
                 className="button-LogOut"
                 onClick={LogOut}
