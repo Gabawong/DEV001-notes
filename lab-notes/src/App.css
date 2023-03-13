@@ -1,12 +1,13 @@
-body{
-  
-  margin: 5px;
+body {
+
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  border: 5px solid #c65314;
+  border: 5px solid #c65314; 
+  margin: 0;
 }
+
 #root {
   display: flex;
   flex-direction: column;
@@ -92,7 +93,7 @@ button {
   font-size: 20px;
   border-radius: 3px;
   padding: 10px 10px;
-  /* border: 1px solid transparent; */
+  border: 1px solid transparent;
   background-color: #1a1a1a;
   cursor: pointer;
   width: 300px;
@@ -129,6 +130,13 @@ button:focus-visible {
   text-align: center;
 }
 
+.button-Search {
+  width: 150px;
+  background-color: #c65314;
+  margin: 15px;
+  text-align: center;
+}
+
 a {
   font-weight: 500;
   color: #545454;
@@ -141,26 +149,29 @@ a:hover {
 
 .Muro-container {
   display: flex;
-
-
 }
-
-.Muro-note {
+.input-search {
+  width: 300px;
+  height: 30px;
+  font-size: 20px;
+}
+/* .Muro-note {
   display: flex;
   flex-direction: column;
   font-family: 'Prompt', sans-serif;
   font-size: 20px;
   width: 100%;
 
-}
+} */
 
 .Navbar-structure {
-  border-right: 5px solid #c65314;
+  /* border-right: 5px solid #c65314; */
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 200px;
+  background-color: #f8e3d8;
 }
 
 .Muro-body {
@@ -168,7 +179,9 @@ a:hover {
   flex-direction: column;
   align-items: stretch;
   border-top: 5px solid #c65314;
-  width: 620px;
+  max-height: 1000px;
+  scroll-behavior: auto;
+  overflow-y: scroll
 }
 
 .Note-form {
@@ -181,8 +194,8 @@ a:hover {
   flex-direction: column;
   align-items: flex-start;
   width: 700px;
-  height: 200px;
-  justify-content: space-evenly;
+  height: 300px;
+  justify-content: space-between;
 }
 
 .notas-pending {
@@ -196,12 +209,42 @@ a:hover {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
-  height: 200px;
+  height: 50px;
   width: 700px;
+  padding: 10px;
+  font-size: 20px;
 }
 
-.input-notes {
-  margin: 0 0 0 10x;
+dialog {
+  min-height: 300px;
+  min-width: 500px;
+ 
+}
+#status{
+  min-height: 40px;
+  min-width: 200px;
+  font-size: 20px;
+}
+textarea {
+  font-size: 20px;
+}
+.bienvenida1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Prompt', sans-serif;
+  align-items: center;
+  color:bold black;
+  font-size: 30px;
+}
+.bienvenida2 {
+  font-size: 14px;
+  width:10px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
 }
 
 @media (prefers-color-scheme: light) {
