@@ -15,7 +15,7 @@ const EditNoteModal = ({ notas, user, refreshAllNotes, showModal }) => {
 
     const submitHandler = (e) => {
         e.preventDefault();//prevenir que la pag se actualice
-        editNote(noteEdit.id,user,noteEdit)
+        editNote(noteEdit.id,noteEdit,user)
             .then(confirmacion => {
                 //  const modal = document.getElementById('modal-edit-note');
                 refreshAllNotes();//actualizamos
