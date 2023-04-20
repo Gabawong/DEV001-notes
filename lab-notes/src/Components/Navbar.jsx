@@ -7,7 +7,7 @@ const Navbar = ({user}) => {
     return (
         <div className='Navbar-structure'>
             <div className='bienvenida1'>
-            <img src={user.user.photoURL} alt="Profile picture" />
+            <img src={user.user.photoURL} alt = "Profile picture" />
             <p >Bienvenida</p>
             <p className='bienvenida2'>
             {user.user.displayName}</p>
